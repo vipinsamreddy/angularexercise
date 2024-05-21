@@ -1,0 +1,16 @@
+<div class="results-container" *ngIf="companies && companies.length > 0">
+    <div class="row" *ngFor="let company of companies" class="pt-5 pl-l0">
+        <div class="pb-2">{{ company.title }}</div>
+        <div>Company number </div>
+        <div class="pb-2">{{ company.company_number }}</div>
+        <div>Registered office address </div>
+        <div class="pb-2"> {{ company.address_snippet }}</div>
+        <div>Company status </div>
+        <div class="pb-2"> {{ company.company_status }}</div>
+        <div>Company type </div>
+        <div class="pb-2"> {{ company.company_type }}</div>
+        <div>Incorporated on </div>
+        <div class="pb-2"> {{ company.date_of_creation }}</div>
+        <button type="button" class="btn btn-link" (click)="navigateToOfficerDetails(company)">List Officers</button>
+    </div>
+</div>

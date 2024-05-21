@@ -1,0 +1,12 @@
+<div class="row" class="pt-5">
+    <div class="results-container" *ngIf="officers.length">
+        <div> <strong> {{companyName}} </strong>
+        </div>
+        <div class="pb-3"> Company number {{id}}
+        </div>
+        <div *ngFor="let officer of officers">
+            <div>{{officer.name}}</div>
+            <div class="pb-2"> {{officer.officer_role}}</div>
+        </div>
+    </div>
+</div>

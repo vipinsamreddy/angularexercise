@@ -1,0 +1,28 @@
+<div class="container">
+    <form class="example-form" (ngSubmit)="onSubmit()">
+        <div class="form-container">
+            <mat-form-field class="example-full-width">
+                <mat-label>Search</mat-label>
+                <input type="text" matInput [formControl]="formControl" placeholder="Company Name or Number">
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </div>
+    </form>
+    <div class="results-container" *ngIf="companies.length">
+        <div class="row" *ngFor="let company of companies">
+            <div >
+                <a [routerLink]="['/details', company.company_number]">{{ company.title }}</a>
+            </div>
+            <div>
+                {{ company.description }}
+            </div>
+            <div class="pb-2">
+                {{ company.address_snippet }}
+            </div>
+        </div>
+
+        <mat-paginator [length]="companies.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page" (page)="onPageChange($event)" showFirstLastButtons >
+        </mat-paginator>
+    </div>
+</div>
